@@ -1,5 +1,10 @@
 package client;
 
+import rental.CarType;
+import rental.Reservation;
+import session.ManagerSession;
+import session.ReservationSession;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -7,7 +12,11 @@ import java.util.Set;
 /**
  * Created by Team Loco on 21/10/2014.
  */
-public class Client implements AbstractScriptedTripTest <ReservationSession, ManagerSession> {
+public class Client extends AbstractScriptedTripTest<ReservationSession,ManagerSession> {
+
+    public Client(String scriptFile) {
+        super(scriptFile);
+    }
 
     @Override
     protected ReservationSession getNewReservationSession(String name) throws Exception {

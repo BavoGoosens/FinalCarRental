@@ -6,7 +6,7 @@ package client;
 public class RunClient {
 
     public static void main(String[] args) throws Exception {
-        Client client = new Client();
+        Client client = new Client("trips");
         client.run();
     }
 }
