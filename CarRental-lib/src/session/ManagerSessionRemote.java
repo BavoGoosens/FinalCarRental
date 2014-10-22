@@ -3,7 +3,7 @@ package session;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
-import rental.CarRentalCompany;
+import rental.ICarRentalCompany;
 import rental.CarType;
 
 /**
@@ -13,11 +13,11 @@ import rental.CarType;
 
 public interface ManagerSessionRemote extends Remote {
 
-    void registerCompany(CarRentalCompany company) throws RemoteException;
+    void registerCompany(String companyName, String csvData) throws RemoteException;
 
-    void unregisterCompany(String company) throws RemoteException;
+    void unregisterCompany(String companyName) throws RemoteException;
 
-    Collection<CarRentalCompany> getAllCompanies() throws RemoteException;
+    Collection<ICarRentalCompany> getAllCompanies() throws RemoteException;
 
     Collection<CarType> getAllCarTypes() throws RemoteException;
 

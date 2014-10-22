@@ -1,4 +1,4 @@
-package rental;
+import rental.*;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,13 +12,13 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CarRentalCompany {
+public class CarRentalCompany implements ICarRentalCompany {
 
 	private static Logger logger = Logger.getLogger(CarRentalCompany.class.getName());
 	
 	private String name;
 	private List<Car> cars;
-	private Map<String,CarType> carTypes = new HashMap<String, CarType>();
+	private Map<String, CarType> carTypes = new HashMap<String, CarType>();
 
 	/***************
 	 * CONSTRUCTOR *

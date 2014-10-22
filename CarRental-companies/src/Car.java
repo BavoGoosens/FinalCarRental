@@ -1,4 +1,5 @@
-package rental;
+import rental.CarType;
+import rental.Reservation;
 
 import java.util.ArrayList;
 import java.util.Date;

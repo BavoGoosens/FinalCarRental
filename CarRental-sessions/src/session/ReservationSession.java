@@ -3,11 +3,9 @@ package session;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import rental.CarRentalCompany;
+import rental.ICarRentalCompany;
 import rental.CarType;
 import rental.Quote;
-import rental.Reservation;
-import rental.ReservationConstraints;
 import rental.ReservationException;
 
 
