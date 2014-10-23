@@ -3,9 +3,8 @@ package session;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import rental.ICarRentalCompany;
-import rental.CarType;
 import rental.Quote;
+import rental.Reservation;
 import rental.ReservationException;
 
 
@@ -13,7 +12,12 @@ public class ReservationSession implements ReservationSessionRemote {
 
 
     @Override
-    public void createQuote(String name, Date start, Date end, String carType, String carRentalName) throws ReservationException, RemoteException {
+    public String getClientName() {
+        return null;
+    }
+
+    @Override
+    public void createQuote(Date start, Date end, String carType, String carRentalName) throws ReservationException, RemoteException {
 
     }
 
@@ -23,8 +27,8 @@ public class ReservationSession implements ReservationSessionRemote {
     }
 
     @Override
-    public void confirmQuotes() throws ReservationException, RemoteException {
-
+    public List<Reservation> confirmQuotes() throws ReservationException, RemoteException {
+        return null;
     }
 
     @Override
@@ -33,7 +37,7 @@ public class ReservationSession implements ReservationSessionRemote {
     }
 
     @Override
-    public CarType getCheapestCarType() throws RemoteException {
+    public String getCheapestCarType(Date start, Date end) throws RemoteException {
         return null;
     }
 }

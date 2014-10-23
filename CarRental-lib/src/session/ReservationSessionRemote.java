@@ -11,15 +11,16 @@ import rental.*;
 
 public interface ReservationSessionRemote extends Remote {
 
+    String getClientName();
 
-    void createQuote(String name, Date start, Date end, String carType, String carRentalName) throws ReservationException,RemoteException;
+    void createQuote(Date start, Date end, String carType, String carRentalName) throws ReservationException,RemoteException;
     
     Collection<Quote> getQuotes() throws RemoteException;
-    
-    void confirmQuotes() throws ReservationException, RemoteException;
+
+    Collection<Reservation> confirmQuotes() throws ReservationException, RemoteException;
     
     void getAvailableCarTypes(Date start, Date end) throws RemoteException;
 
-    CarType getCheapestCarType() throws RemoteException;
+    String getCheapestCarType(Date start, Date end) throws RemoteException;
     
 }

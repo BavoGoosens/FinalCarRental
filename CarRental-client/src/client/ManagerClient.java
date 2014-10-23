@@ -5,7 +5,7 @@ package client;
  */
 public class ManagerClient {
 
-    public ManagerClient(String companyName, String filePath){
+    public ManagerClient(String companyName, String filePath, String host, int port, String Name){
 
     }
 

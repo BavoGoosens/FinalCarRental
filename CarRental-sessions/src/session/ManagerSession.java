@@ -5,6 +5,7 @@ import rental.CarType;
 
 import java.rmi.RemoteException;
 import java.util.Collection;
+import java.util.Set;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.Collection;
 public class ManagerSession implements ManagerSessionRemote {
 
     @Override
-    public void registerCompany(ICarRentalCompany company) throws RemoteException {
+    public void registerCompany(String companyName, String csvData) throws RemoteException {
 
     }
 
@@ -39,7 +40,7 @@ public class ManagerSession implements ManagerSessionRemote {
     }
 
     @Override
-    public String getBestClient(String company) throws RemoteException {
+    public Set<String> getBestClients() throws RemoteException {
         return null;
     }
 

@@ -1,5 +1,15 @@
+import rental.ICarRentalCompany;
+
+import java.rmi.RemoteException;
+
 /**
- * Created by Bavo on 22/10/2014.
+ * Created by Team Loco on 22/10/2014.
  */
-public class RentalServer {
+public class RentalServer implements IRentalServer{
+
+    @Override
+    public ICarRentalCompany createNewCompany() throws RemoteException {
+        return null;
+    }
+
 }
