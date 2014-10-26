@@ -7,16 +7,17 @@ import java.rmi.Remote;
  */
 public class SessionManager implements SessionManagerRemote {
 
+    public static void main(String[] args){
+
+    }
 
     @Override
-    public ManagerSessionRemote getManagerSessionRemote() {
-        // TODO
+    public ManagerSession getManagerSessionRemote(String name) {
         return null;
     }
 
     @Override
-    public ReservationSessionRemote getReservationSessionRemote() {
-        //TODO
+    public ReservationSession getReservationSessionRemote(String name) {
         return null;
     }
 }

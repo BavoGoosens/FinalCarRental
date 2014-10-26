@@ -38,7 +38,7 @@ public class RunClient {
                 name = args[2];
             }
         } catch (Exception e){
-            System.out.println("There was no host provided \nPlease provide host \n like localhost perhaps");
+            System.out.println("There was no host provided \nPlease provide host \nlike localhost perhaps");
         }
 
         System.setSecurityManager(null);
