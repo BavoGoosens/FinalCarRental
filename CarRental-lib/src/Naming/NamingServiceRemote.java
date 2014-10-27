@@ -1,10 +1,8 @@
-package session;
+package Naming;
 
 import Naming.DoubleNamingException;
 import Naming.InvalidNamingException;
-import Naming.NamingException;
 import rental.ICarRentalCompany;
-
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -13,7 +11,7 @@ import java.rmi.RemoteException;
  */
 public interface NamingServiceRemote extends Remote{
 
-    void registerCompany(ICarRentalCompany company) throws RemoteException, NamingException, DoubleNamingException;
+    void registerCompany(ICarRentalCompany company) throws RemoteException, DoubleNamingException;
 
     void unregisterCompany(String company) throws RemoteException;
 

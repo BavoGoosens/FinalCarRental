@@ -1,4 +1,4 @@
-import session.NamingServiceRemote;
+import Naming.NamingServiceRemote;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
