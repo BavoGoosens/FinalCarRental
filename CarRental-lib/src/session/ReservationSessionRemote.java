@@ -7,17 +7,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+import Naming.InvalidNamingException;
 import rental.*;
 
 public interface ReservationSessionRemote extends Remote {
 
     String getClientName();
 
-    void createQuote(Date start, Date end, String carType, String carRentalName) throws ReservationException,RemoteException;
+    void createQuote(Date start, Date end, String carType, String carRentalName) throws ReservationException, RemoteException, InvalidNamingException;
     
     Collection<Quote> getQuotes() throws RemoteException;
 
-    Collection<Reservation> confirmQuotes() throws ReservationException, RemoteException;
+    Collection<Reservation> confirmQuotes() throws ReservationException, RemoteException, InvalidNamingException;
     
     void getAvailableCarTypes(Date start, Date end) throws RemoteException;
 

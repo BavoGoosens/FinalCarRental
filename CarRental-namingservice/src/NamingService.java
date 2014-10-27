@@ -15,7 +15,7 @@ public class NamingService implements NamingServiceRemote {
     private int port;
     private String name;
 
-    private HashMap<String, ICarRentalCompany> registeredCompanies = new HashMap<>();
+    private HashMap<String, ICarRentalCompany> registeredCompanies = new HashMap<String, ICarRentalCompany>();
 
     public NamingService(String host, int port, String name){
         this.host = host;
