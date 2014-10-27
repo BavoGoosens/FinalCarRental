@@ -1,13 +1,15 @@
 package session;
 
-import java.rmi.Remote;
+
+import naming.NamingServiceRemote;
+import rental.IRentalServer;
 
 /**
  * Created by Team Loco on 22/10/2014.
  */
 public class SessionManager implements SessionManagerRemote {
 
-    public static void main(String[] args){
+    public  SessionManager(IRentalServer rentalServer, NamingServiceRemote namingService){
 
     }
 

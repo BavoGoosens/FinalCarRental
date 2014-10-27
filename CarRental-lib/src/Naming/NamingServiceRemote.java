@@ -1,7 +1,5 @@
-package Naming;
+package naming;
 
-import Naming.DoubleNamingException;
-import Naming.InvalidNamingException;
 import rental.ICarRentalCompany;
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -1,3 +1,5 @@
+package rental;
+
 import rental.ICarRentalCompany;
 
 import java.rmi.Remote;

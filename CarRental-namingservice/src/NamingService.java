@@ -1,7 +1,7 @@
-import Naming.DoubleNamingException;
-import Naming.InvalidNamingException;
+import naming.DoubleNamingException;
+import naming.InvalidNamingException;
 import rental.ICarRentalCompany;
-import Naming.NamingServiceRemote;
+import naming.NamingServiceRemote;
 
 import java.rmi.RemoteException;
 import java.util.HashMap;
