@@ -1,5 +1,6 @@
 package client;
 
+import naming.DoubleNamingException;
 import rental.*;
 import session.ManagerSessionRemote;
 import session.SessionManagerRemote;
@@ -35,7 +36,7 @@ public class ManagerClient {
         this.filePath = filePath;
     }
 
-    public void run() throws IOException, ReservationException {
+    public void run() throws IOException, ReservationException, DoubleNamingException {
         List<Car> cars = loadData(this.filePath);
         ICarRentalCompany company = new CarRentalCompany(this.companyName, cars);
         this.session.registerCompany(company);

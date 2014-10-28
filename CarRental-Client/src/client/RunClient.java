@@ -8,11 +8,11 @@ import java.util.HashMap;
  */
 public class RunClient {
 
-    private static String host;
+    private static String host = "localhost";
 
-    private static int port;
+    private static int port = 1099;
 
-    private static String name;
+    private static String name = "SessionMeister";
 
     /*
      The client needs to know the location of the SessionManager(Remote)
@@ -25,24 +25,17 @@ public class RunClient {
         args[2] = name (can be awesome)
     */
     public static void main(String[] args) throws Exception {
-        // TODO: provide mechanism to catch undeclared server names
         System.setSecurityManager(null);
+
         try{
             host = args[0];
-            try{
-                port = Integer.parseInt(args[1]);
-                name = args[2];
-            }catch (NumberFormatException ex){
-                System.out.println("Please provide a proper integer port address");
-            }catch (Exception e){
-                System.out.println("There was no port provided \n Port set to the default 1099");
-                name = args[2];
-            }
+            port = Integer.parseInt(args[1]);
+            name = args[2];
         } catch (Exception e){
-            System.out.println("There was no host provided \nPlease provide host \nlike localhost perhaps");
+            System.out.println("There was a problem with your program arguments" +
+                    "\nWe will use the following default values" + "\nhost = " +
+                    host + "\nport = " + port + "\nname = " + name );
         }
-
-        System.setSecurityManager(null);
 
         ManagerClient manager1 = new ManagerClient("Dockx", "src/dockx.csv", host, port,name);
         ManagerClient manager2 = new ManagerClient("Hertz", "src/hertz", host , port, name);
@@ -51,6 +44,5 @@ public class RunClient {
 
         Client testClient = new Client("src/trips", host, port, name);
         testClient.run();
-
     }
 }
