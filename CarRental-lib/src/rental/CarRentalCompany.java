@@ -187,9 +187,19 @@ public class CarRentalCompany implements ICarRentalCompany {
         return clients;
     }
 
+    @Override
     public CarType getMostPopularCarType() {
+        CarType mostPopularType = null;
         for (CarType type: this.getAllTypes()) {
-
+            mostPopularType = type;
+            break;
         }
+        //TODO: hoe mostPopularType beter initialiseren?
+        for (CarType type: this.getAllTypes()) {
+            if (this.getNumberOfReservationsForCarType(type.getName()) > this.getNumberOfReservationsForCarType(mostPopularType.getName())) {
+                mostPopularType = type;
+            }
+        }
+        return mostPopularType;
     }
 }

@@ -32,6 +32,6 @@ public interface ManagerSessionRemote extends Remote, Serializable {
 
     int getNbOfReservations(String client) throws RemoteException;
 
-    CarType getMostPopularCarType(String company) throws RemoteException;
+    CarType getMostPopularCarType(String company) throws RemoteException, InvalidNamingException;
     
 }

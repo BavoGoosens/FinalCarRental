@@ -24,4 +24,6 @@ public interface ICarRentalCompany extends Remote, Serializable {
     int getNumberOfReservationsByClient(String client);
 
     Collection<String> getAllClients();
+
+    CarType getMostPopularCarType();
 }

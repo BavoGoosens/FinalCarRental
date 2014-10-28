@@ -80,8 +80,8 @@ public class ManagerSession implements ManagerSessionRemote {
     }
 
     @Override
-    public CarType getMostPopularCarType(String company) throws RemoteException {
-        return null;
+    public CarType getMostPopularCarType(String company) throws RemoteException, InvalidNamingException {
+        return this.namingService.lookUpCompany(company).getMostPopularCarType();
     }
 }
 
