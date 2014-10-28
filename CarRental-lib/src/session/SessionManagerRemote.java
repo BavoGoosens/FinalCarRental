@@ -8,8 +8,8 @@ import java.rmi.Remote;
 public interface SessionManagerRemote extends Remote {
 
     // client name
-    ManagerSession getManagerSessionRemote(String name);
+    ManagerSessionRemote getManagerSessionRemote(String name);
 
-    ReservationSession getReservationSessionRemote(String name);
+    ReservationSessionRemote getReservationSessionRemote(String name);
 
 }

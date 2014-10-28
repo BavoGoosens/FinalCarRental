@@ -4,6 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import naming.InvalidNamingException;
 import rental.*;
@@ -16,7 +17,7 @@ public interface ReservationSessionRemote extends Remote {
     
     Collection<Quote> getQuotes() throws RemoteException;
 
-    Collection<Reservation> confirmQuotes() throws ReservationException, RemoteException, InvalidNamingException;
+    List<Reservation> confirmQuotes() throws ReservationException, RemoteException, InvalidNamingException;
     
     void getAvailableCarTypes(Date start, Date end) throws RemoteException;
 
