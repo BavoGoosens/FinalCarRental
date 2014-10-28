@@ -3,6 +3,7 @@ package session;
 
 import naming.NamingServiceRemote;
 
+import java.rmi.RemoteException;
 import java.util.HashMap;
 
 /**
@@ -43,12 +44,12 @@ public class SessionManager implements SessionManagerRemote {
     }
 
     @Override
-    public void closeManagerSession(ManagerSessionRemote session) {
+    public void closeManagerSession(ManagerSessionRemote session) throws RemoteException {
         this.activeManagerSessions.remove(session.getClientName());
     }
 
     @Override
-    public void closeReservationSession(ReservationSessionRemote session) {
+    public void closeReservationSession(ReservationSessionRemote session) throws RemoteException {
         this.activeReservationSessions.remove(session.getClientName());
     }
 }

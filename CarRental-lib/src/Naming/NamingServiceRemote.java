@@ -19,6 +19,6 @@ public interface NamingServiceRemote extends Remote {
 
     ICarRentalCompany lookUpCompany(String company) throws RemoteException, InvalidNamingException;
 
-    Collection<ICarRentalCompany> getAllCompanies();
+    Collection<ICarRentalCompany> getAllCompanies() throws RemoteException;
 
 }

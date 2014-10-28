@@ -18,7 +18,7 @@ import rental.CarType;
 
 public interface ManagerSessionRemote extends Remote, Serializable {
 
-    String getClientName();
+    String getClientName() throws RemoteException;
 
     void registerCompany(ICarRentalCompany company) throws RemoteException, DoubleNamingException;
 

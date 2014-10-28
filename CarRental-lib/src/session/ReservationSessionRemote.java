@@ -12,7 +12,7 @@ import rental.*;
 
 public interface ReservationSessionRemote extends Remote, Serializable {
 
-    String getClientName();
+    String getClientName() throws RemoteException;
 
     void createQuote(Date start, Date end, String carType, String carRentalName) throws ReservationException, RemoteException, InvalidNamingException;
     

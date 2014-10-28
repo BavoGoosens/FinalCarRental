@@ -29,6 +29,7 @@ public class ManagerClient {
     private String filePath;
 
     public ManagerClient(String companyName, String filePath, String host, int port, String name) throws RemoteException, NotBoundException {
+        System.setSecurityManager(null);
         Registry registry = LocateRegistry.getRegistry(host, port);
         SessionManagerRemote sessionManager = (SessionManagerRemote) registry.lookup(name);
         session = sessionManager.getManagerSessionRemote("ManagerA");
