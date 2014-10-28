@@ -26,6 +26,7 @@ public class RunSessionManager {
      * The SessionManager needs to know where new companies are to be registered.
      * It also needs to be able to access the namingservice to lookup or register
      * new companies and such.
+     * Please also provide the location details where the session manager runs.
      *
      * Thus please provide:
      *      args[0] = company server host
@@ -35,6 +36,10 @@ public class RunSessionManager {
      *      args[3] = naming service host
      *      args[4] = naming service host
      *      args[5] = naming service name
+     *
+     *      args[6] = host for the session manager
+     *      args[7] = port for the session manager
+     *      args [8] = name for the session manager
      */
     public static void main(String[] args) throws RemoteException, NotBoundException {
         try{

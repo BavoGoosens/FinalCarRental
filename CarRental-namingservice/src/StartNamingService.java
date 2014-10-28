@@ -28,8 +28,9 @@ public class StartNamingService {
             port = Integer.parseInt(args[1]);
             name = args[3];
         } catch (Exception e) {
-            System.out.println("There was a problem with your program params \nWe will use the default params\nhost = "
-                    + host +"\nport = " + port + "\nname = " + name);
+            System.out.println("There was a problem with your program params " +
+                    "\nWe will use the default params\nhost = " + host +
+                    "\nport = " + port + "\nname = " + name);
         } finally {
             NamingServiceRemote ns = new NamingService(host, port, name);
             NamingServiceRemote stub = (NamingServiceRemote) UnicastRemoteObject.exportObject(ns, 0);
