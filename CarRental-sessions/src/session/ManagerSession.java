@@ -1,11 +1,14 @@
 package session;
 
+import naming.DoubleNamingException;
+import naming.InvalidNamingException;
+import naming.NamingServiceRemote;
+import naming.DoubleNamingException;
 import rental.ICarRentalCompany;
 import rental.CarType;
 
 import java.rmi.RemoteException;
-import java.util.Collection;
-import java.util.Set;
+import java.util.*;
 
 /**
  *
@@ -14,39 +17,66 @@ import java.util.Set;
 
 public class ManagerSession implements ManagerSessionRemote {
 
-    @Override
-    public void registerCompany(ICarRentalCompany company) throws RemoteException {
+    private NamingServiceRemote namingService;
+    private String clientName;
 
+    public ManagerSession(NamingServiceRemote namingService, String clientName) {
+        this.namingService = namingService;
+        this.clientName = clientName;
+    }
+
+    @Override
+    public void registerCompany(ICarRentalCompany company) throws RemoteException, DoubleNamingException {
+        this.namingService.registerCompany(company);
     }
 
     @Override
     public void unregisterCompany(String company) throws RemoteException {
-
+        this.namingService.unregisterCompany(company);
     }
 
     @Override
     public Collection<ICarRentalCompany> getAllCompanies() throws RemoteException {
-        return null;
+        return this.namingService.getAllCompanies();
     }
 
     @Override
     public Collection<CarType> getAllCarTypes() throws RemoteException {
-        return null;
+        ArrayList<CarType> carTypes = new ArrayList<CarType>();
+        for (ICarRentalCompany company: this.getAllCompanies()) {
+            carTypes.addAll(company.getAllTypes());
+        }
+        return carTypes;
     }
 
     @Override
-    public int getNbOfReservations(String company, String cartype) throws RemoteException {
-        return 0;
+    public int getNbOfReservations(String companyName, String carType) throws RemoteException, InvalidNamingException {
+        ICarRentalCompany company = this.namingService.lookUpCompany(companyName);
+        return company.getNumberOfReservationsForCarType(carType);
     }
 
     @Override
     public Set<String> getBestClients() throws RemoteException {
+        List<String> clients = this.getAllClients();
+        // TODO: clients sorteren op aantal gemaakte reservaties
         return null;
+    }
+
+    private List<String> getAllClients() throws RemoteException {
+        ArrayList<String> clients = new ArrayList<String>();
+        for (ICarRentalCompany company : this.getAllCompanies()) {
+            clients.addAll(company.getAllClients());
+        }
+        return clients;
     }
 
     @Override
     public int getNbOfReservations(String client) throws RemoteException {
-        return 0;
+        int nbOfReservations = 0;
+        for (ICarRentalCompany company: this.getAllCompanies()) {
+            nbOfReservations += company.getNumberOfReservationsByClient(client);
+        }
+        return nbOfReservations;
     }
 
     @Override

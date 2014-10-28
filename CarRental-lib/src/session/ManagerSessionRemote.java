@@ -5,6 +5,8 @@ import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Set;
 
+import naming.DoubleNamingException;
+import naming.InvalidNamingException;
 import rental.ICarRentalCompany;
 import rental.CarType;
 
@@ -15,7 +17,7 @@ import rental.CarType;
 
 public interface ManagerSessionRemote extends Remote {
 
-    void registerCompany(ICarRentalCompany company) throws RemoteException;
+    void registerCompany(ICarRentalCompany company) throws RemoteException, DoubleNamingException;
 
     void unregisterCompany(String companyName) throws RemoteException;
 
@@ -23,7 +25,7 @@ public interface ManagerSessionRemote extends Remote {
 
     Collection<CarType> getAllCarTypes() throws RemoteException;
 
-    int getNbOfReservations(String company, String cartype) throws RemoteException;
+    int getNbOfReservations(String companyName, String carType) throws RemoteException, InvalidNamingException;
 
     Set<String> getBestClients() throws RemoteException;
 

@@ -16,11 +16,11 @@ public class SessionManager implements SessionManagerRemote {
 
     @Override
     public ManagerSessionRemote getManagerSessionRemote(String name) {
-        return null;
+        return new ManagerSession(this.namingService, name);
     }
 
     @Override
     public ReservationSessionRemote getReservationSessionRemote(String name) {
-        return null;
+        return new ReservationSession(this.namingService, name);
     }
 }

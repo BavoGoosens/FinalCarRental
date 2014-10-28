@@ -48,6 +48,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 	 * CAR TYPES *
 	 *************/
 
+    @Override
 	public Collection<CarType> getAllTypes(){
 		return carTypes.values();
 	}
@@ -139,23 +140,50 @@ public class CarRentalCompany implements ICarRentalCompany {
 		getCar(res.getCarId()).removeReservation(res);
 	}
         
-        public List<Reservation> getAllReservations(String client) {
-            List<Reservation> reservations = new ArrayList<Reservation>();
-            for ( Car car : this.cars){
-                for (Reservation reservation : car.getReservations()){
-                    if (reservation.getCarRenter().equals(client))
-                        reservations.add(reservation);
+    public List<Reservation> getAllReservations(String client) {
+        List<Reservation> reservations = new ArrayList<Reservation>();
+        for ( Car car : this.cars){
+            for (Reservation reservation : car.getReservations()){
+                if (reservation.getCarRenter().equals(client))
+                    reservations.add(reservation);
+            }
+        }
+        return  reservations;
+    }
+
+    @Override
+    public int getNumberOfReservationsForCarType(String carType) {
+        int numberOfReservationsForCarType = 0;
+        for (Car car : this.cars){
+            if (car.getType().getName().equalsIgnoreCase(carType))
+                numberOfReservationsForCarType += car.getReservations().size();
+        }
+        return numberOfReservationsForCarType;
+    }
+
+    @Override
+    public int getNumberOfReservationsByClient(String client) {
+        int numberOfReservationsByClient = 0;
+        for (Car car: this.cars) {
+            for (Reservation reservation: car.getReservations()) {
+                if (client.equalsIgnoreCase(reservation.getCarRenter())) {
+                    numberOfReservationsByClient++;
                 }
             }
-            return  reservations;
         }
-        
-        public int getNumberOfReservationsForCarType(String carType) {
-            List<Reservation> reservations = new ArrayList<Reservation>();
-            for ( Car car : this.cars){
-                if (car.getType().getName().equalsIgnoreCase(carType))
-                    reservations.addAll(car.getReservations());
+        return numberOfReservationsByClient;
+    }
+
+    @Override
+    public Collection<String> getAllClients() {
+        ArrayList<String> clients = new ArrayList<String>();
+        for (Car car: this.cars) {
+            for (Reservation reservation: car.getReservations()) {
+                if (!clients.contains(reservation.getCarRenter())) {
+                    clients.add(reservation.getCarRenter());
+                }
             }
-            return reservations.size();
         }
+        return clients;
+    }
 }

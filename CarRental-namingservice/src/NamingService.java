@@ -4,6 +4,7 @@ import rental.ICarRentalCompany;
 import naming.NamingServiceRemote;
 
 import java.rmi.RemoteException;
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -45,4 +46,11 @@ public class NamingService implements NamingServiceRemote {
         else
             throw new InvalidNamingException("There is no company registered under that name");
     }
+
+    @Override
+    public Collection<ICarRentalCompany> getAllCompanies() {
+        return this.registeredCompanies.values();
+    }
+
+
 }
