@@ -11,9 +11,9 @@ import java.util.Date;
  */
 public interface ICarRentalCompany extends Remote, Serializable {
 
-    String getName();
+    String getName() throws RemoteException;
 
-    Quote createQuote(ReservationConstraints constraints, String guest) throws ReservationException;
+    Quote createQuote(ReservationConstraints constraints, String guest) throws ReservationException, RemoteException;
 
     Reservation confirmQuote(Quote quote) throws ReservationException, RemoteException;
 
