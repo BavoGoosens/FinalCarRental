@@ -186,4 +186,10 @@ public class CarRentalCompany implements ICarRentalCompany {
         }
         return clients;
     }
+
+    public CarType getMostPopularCarType() {
+        for (CarType type: this.getAllTypes()) {
+
+        }
+    }
 }
