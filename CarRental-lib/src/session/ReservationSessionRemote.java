@@ -1,5 +1,6 @@
 package session;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
@@ -9,7 +10,7 @@ import java.util.List;
 import naming.InvalidNamingException;
 import rental.*;
 
-public interface ReservationSessionRemote extends Remote {
+public interface ReservationSessionRemote extends Remote, Serializable {
 
     String getClientName();
 

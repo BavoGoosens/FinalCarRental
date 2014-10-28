@@ -9,8 +9,15 @@ import naming.NamingServiceRemote;
 public class SessionManager implements SessionManagerRemote {
 
     private NamingServiceRemote namingService;
+    private String host;
+    private int port;
+    private String name;
 
-    public  SessionManager(NamingServiceRemote namingService){
+    public  SessionManager(String host, int port, String name, NamingServiceRemote namingService){
+        this.host = host;
+        this.port = port;
+        this.name = name;
+
         this.namingService = namingService;
     }
 
