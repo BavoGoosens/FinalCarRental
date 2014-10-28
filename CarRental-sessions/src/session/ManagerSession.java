@@ -15,7 +15,7 @@ import java.util.Set;
 public class ManagerSession implements ManagerSessionRemote {
 
     @Override
-    public void registerCompany(String companyName, String csvData) throws RemoteException {
+    public void registerCompany(ICarRentalCompany company) throws RemoteException {
 
     }
 

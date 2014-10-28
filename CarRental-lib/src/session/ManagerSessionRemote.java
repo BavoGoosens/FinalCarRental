@@ -15,7 +15,7 @@ import rental.CarType;
 
 public interface ManagerSessionRemote extends Remote {
 
-    void registerCompany(String companyName, String csvData) throws RemoteException;
+    void registerCompany(ICarRentalCompany company) throws RemoteException;
 
     void unregisterCompany(String companyName) throws RemoteException;
 

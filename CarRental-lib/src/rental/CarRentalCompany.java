@@ -1,4 +1,4 @@
-import rental.*;
+package rental;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,7 +25,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 	 ***************/
 
 	public CarRentalCompany(String name, List<Car> cars) {
-		logger.log(Level.INFO, "<{0}> Car Rental Company {0} starting up...", name);
+		logger.log(Level.INFO, "<{0}> rental.Car Rental Company {0} starting up...", name);
 		setName(name);
 		this.cars = cars;
 		for(Car car:cars)
