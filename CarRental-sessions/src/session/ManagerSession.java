@@ -49,7 +49,6 @@ public class ManagerSession implements ManagerSessionRemote {
     public Collection<CarType> getAllCarTypes() throws RemoteException {
         ArrayList<CarType> carTypes = new ArrayList<CarType>();
         for (ICarRentalCompany company: this.getAllCompanies()) {
-            // TODO: was dit niet gevaarlijk?
             carTypes.addAll(company.getAllTypes());
         }
         return carTypes;
