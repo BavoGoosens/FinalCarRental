@@ -26,6 +26,7 @@ public class RunClient {
     */
     public static void main(String[] args) throws Exception {
         // TODO: provide mechanism to catch undeclared server names
+        System.setSecurityManager(null);
         try{
             host = args[0];
             try{

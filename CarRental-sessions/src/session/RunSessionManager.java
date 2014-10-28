@@ -42,6 +42,7 @@ public class RunSessionManager {
      *      args [8] = name for the session manager
      */
     public static void main(String[] args) throws RemoteException, NotBoundException {
+        System.setSecurityManager(null);
         try{
             companyHost = args[0];
             companyPort = Integer.parseInt(args[1]);
