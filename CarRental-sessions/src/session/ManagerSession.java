@@ -26,6 +26,11 @@ public class ManagerSession implements ManagerSessionRemote {
     }
 
     @Override
+    public String getClientName() {
+        return this.clientName;
+    }
+
+    @Override
     public void registerCompany(ICarRentalCompany company) throws RemoteException, DoubleNamingException {
         this.namingService.registerCompany(company);
     }

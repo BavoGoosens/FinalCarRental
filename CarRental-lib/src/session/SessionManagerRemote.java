@@ -12,4 +12,7 @@ public interface SessionManagerRemote extends Remote {
 
     ReservationSessionRemote getReservationSessionRemote(String name);
 
+    void closeManagerSession(ManagerSessionRemote session);
+
+    void closeReservationSession(ReservationSessionRemote session);
 }
