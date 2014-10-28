@@ -75,6 +75,9 @@ public class ReservationSession implements ReservationSessionRemote {
 
     @Override
     public String getCheapestCarType(Date start, Date end) throws RemoteException {
+        for (ICarRentalCompany company: this.namingService.getAllCompanies()) {
+            // TODO: het goedkoopste type opvragen (reeds geimplemteerd), maar dan daar nog de goedkoopste van zoeken
+        }
         return null;
     }
 }

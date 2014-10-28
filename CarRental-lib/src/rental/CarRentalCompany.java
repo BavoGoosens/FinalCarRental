@@ -191,15 +191,25 @@ public class CarRentalCompany implements ICarRentalCompany {
     public CarType getMostPopularCarType() {
         CarType mostPopularType = null;
         for (CarType type: this.getAllTypes()) {
-            mostPopularType = type;
-            break;
-        }
-        //TODO: hoe mostPopularType beter initialiseren?
-        for (CarType type: this.getAllTypes()) {
-            if (this.getNumberOfReservationsForCarType(type.getName()) > this.getNumberOfReservationsForCarType(mostPopularType.getName())) {
+            if (mostPopularType == null ||
+                    this.getNumberOfReservationsForCarType(type.getName())
+                            > this.getNumberOfReservationsForCarType(mostPopularType.getName())) {
                 mostPopularType = type;
             }
         }
         return mostPopularType;
+    }
+
+    @Override
+    public CarType getCheapestCarType(Date start, Date end) {
+        CarType cheapestCarType = null;
+        for (CarType type: getAvailableCarTypes(start, end)) {
+            if (cheapestCarType == null ||
+                    this.calculateRentalPrice(type.getRentalPricePerDay(), start, end)
+                            < this.calculateRentalPrice(cheapestCarType.getRentalPricePerDay(), start, end)) {
+                cheapestCarType = type;
+            }
+        }
+        return cheapestCarType;
     }
 }
