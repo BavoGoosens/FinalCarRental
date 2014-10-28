@@ -1,5 +1,6 @@
 package session;
 
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
@@ -13,7 +14,7 @@ import rental.CarType;
  * @author Michiel Vandendriessche & Bavo Goosens
  */
 
-public interface ManagerSessionRemote extends Remote {
+public interface ManagerSessionRemote extends Remote, Serializable {
 
     void registerCompany(ICarRentalCompany company) throws RemoteException;
 
