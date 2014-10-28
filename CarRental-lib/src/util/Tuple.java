@@ -1,4 +1,4 @@
-package businessmodel.util;
+package util;
 
 /**
  * A class representing a generic tuple.

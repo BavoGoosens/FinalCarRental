@@ -1,5 +1,7 @@
 package rental;
 
+import util.Tuple;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -211,7 +213,7 @@ public class CarRentalCompany implements ICarRentalCompany {
     }
 
     @Override
-    public CarType getCheapestCarType(Date start, Date end) {
+    public Tuple<CarType, Double> getCheapestCarType(Date start, Date end) {
         CarType cheapestCarType = null;
         for (CarType type: getAvailableCarTypes(start, end)) {
             if (cheapestCarType == null ||
@@ -220,6 +222,6 @@ public class CarRentalCompany implements ICarRentalCompany {
                 cheapestCarType = type;
             }
         }
-        return cheapestCarType;
+        return new Tuple<CarType, Double>(cheapestCarType, this.calculateRentalPrice(cheapestCarType.getRentalPricePerDay(), start, end));
     }
 }

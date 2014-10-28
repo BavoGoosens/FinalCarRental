@@ -6,6 +6,7 @@ import java.util.*;
 import naming.InvalidNamingException;
 import naming.NamingServiceRemote;
 import rental.*;
+import util.Tuple;
 
 
 public class ReservationSession implements ReservationSessionRemote {
@@ -75,9 +76,16 @@ public class ReservationSession implements ReservationSessionRemote {
 
     @Override
     public String getCheapestCarType(Date start, Date end) throws RemoteException {
+        ArrayList<Tuple<CarType, Double>> cheapestCars = new ArrayList<Tuple<CarType, Double>>();
         for (ICarRentalCompany company: this.namingService.getAllCompanies()) {
-            // TODO: het goedkoopste type opvragen (reeds geimplemteerd), maar dan daar nog de goedkoopste van zoeken
+            cheapestCars.add(company.getCheapestCarType(start, end));
         }
-        return null;
+        Tuple<CarType, Double> cheapestCar = null;
+        for (Tuple<CarType, Double> tuple: cheapestCars) {
+            if (cheapestCar == null || tuple.getY() < cheapestCar.getY()) {
+                cheapestCar = tuple;
+            }
+        }
+        return cheapestCar.getX().getName();
     }
 }

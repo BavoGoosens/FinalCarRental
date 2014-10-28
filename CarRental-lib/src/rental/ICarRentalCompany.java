@@ -28,5 +28,5 @@ public interface ICarRentalCompany extends Remote, Serializable {
 
     CarType getMostPopularCarType();
 
-    CarType getCheapestCarType(Date start, Date end);
+    util.Tuple<CarType, Double> getCheapestCarType(Date start, Date end);
 }
