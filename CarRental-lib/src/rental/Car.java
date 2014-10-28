@@ -1,3 +1,5 @@
+package rental;
+
 import rental.CarType;
 import rental.Reservation;
 
