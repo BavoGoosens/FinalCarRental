@@ -1,6 +1,7 @@
 package session;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  * Created by Team Loco on 23/10/2014.
@@ -8,11 +9,11 @@ import java.rmi.Remote;
 public interface SessionManagerRemote extends Remote {
 
     // client name
-    ManagerSessionRemote getManagerSessionRemote(String name);
+    ManagerSessionRemote getManagerSessionRemote(String name) throws RemoteException;
 
-    ReservationSessionRemote getReservationSessionRemote(String name);
+    ReservationSessionRemote getReservationSessionRemote(String name) throws RemoteException;
 
-    void closeManagerSession(ManagerSessionRemote session);
+    void closeManagerSession(ManagerSessionRemote session) throws RemoteException;
 
-    void closeReservationSession(ReservationSessionRemote session);
+    void closeReservationSession(ReservationSessionRemote session) throws RemoteException;
 }

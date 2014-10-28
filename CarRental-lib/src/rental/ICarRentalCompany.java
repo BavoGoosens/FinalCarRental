@@ -2,6 +2,7 @@ package rental;
 
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
 
@@ -14,19 +15,19 @@ public interface ICarRentalCompany extends Remote, Serializable {
 
     Quote createQuote(ReservationConstraints constraints, String guest) throws ReservationException;
 
-    Reservation confirmQuote(Quote quote) throws ReservationException;
+    Reservation confirmQuote(Quote quote) throws ReservationException, RemoteException;
 
-    void cancelReservation(Reservation reservation);
+    void cancelReservation(Reservation reservation) throws RemoteException;
 
-    Collection<CarType> getAllTypes();
+    Collection<CarType> getAllTypes() throws RemoteException;
 
-    int getNumberOfReservationsForCarType(String carType);
+    int getNumberOfReservationsForCarType(String carType) throws RemoteException;
 
-    int getNumberOfReservationsByClient(String client);
+    int getNumberOfReservationsByClient(String client) throws RemoteException;
 
-    String getBestClient();
+    String getBestClient() throws RemoteException;
 
-    CarType getMostPopularCarType();
+    CarType getMostPopularCarType() throws RemoteException;
 
-    util.Tuple<CarType, Double> getCheapestCarType(Date start, Date end);
+    util.Tuple<CarType, Double> getCheapestCarType(Date start, Date end) throws RemoteException;
 }
