@@ -1,9 +1,11 @@
 package rental;
 
+import java.rmi.Remote;
+
 /**
  * Created by TeamLoco on 22/10/2014.
  */
-public interface ICarRentalCompany {
+public interface ICarRentalCompany extends Remote {
 
     String getName();
 

@@ -4,10 +4,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
-import Naming.InvalidNamingException;
+import naming.InvalidNamingException;
 import rental.*;
 
 public interface ReservationSessionRemote extends Remote {

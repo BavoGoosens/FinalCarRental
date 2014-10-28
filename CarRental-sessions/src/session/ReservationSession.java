@@ -3,8 +3,8 @@ package session;
 import java.rmi.RemoteException;
 import java.util.*;
 
-import Naming.InvalidNamingException;
-import Naming.NamingServiceRemote;
+import naming.InvalidNamingException;
+import naming.NamingServiceRemote;
 import rental.*;
 
 
