@@ -23,6 +23,7 @@ public class StartNamingService {
         args[2] = name (can be awesome, if nothing is provided then default = awesome)
     */
     public static void main(String[] args) throws RemoteException {
+        System.setSecurityManager(null);
         try{
             host = args[0];
             port = Integer.parseInt(args[1]);
@@ -35,7 +36,7 @@ public class StartNamingService {
             NamingServiceRemote ns = new NamingService(host, port, name);
             NamingServiceRemote stub = (NamingServiceRemote) UnicastRemoteObject.exportObject(ns, 0);
 
-            Registry registry = LocateRegistry.getRegistry(port);
+            Registry registry = LocateRegistry.getRegistry(host, port);
 
             registry.rebind(name, stub);
         }

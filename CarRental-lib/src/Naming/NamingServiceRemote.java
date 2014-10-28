@@ -1,6 +1,8 @@
 package naming;
 
 import rental.ICarRentalCompany;
+
+import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
