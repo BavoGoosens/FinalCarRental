@@ -58,17 +58,11 @@ public class ManagerSession implements ManagerSessionRemote {
 
     @Override
     public Set<String> getBestClients() throws RemoteException {
-        List<String> clients = this.getAllClients();
-        // TODO: clients sorteren op aantal gemaakte reservaties
-        return null;
-    }
-
-    private List<String> getAllClients() throws RemoteException {
-        ArrayList<String> clients = new ArrayList<String>();
-        for (ICarRentalCompany company : this.getAllCompanies()) {
-            clients.addAll(company.getAllClients());
+        Set<String> bestClients = new TreeSet<String>();
+        for (ICarRentalCompany company: this.getAllCompanies()) {
+            bestClients.add(company.getBestClient());
         }
-        return clients;
+        return bestClients;
     }
 
     @Override

@@ -175,7 +175,17 @@ public class CarRentalCompany implements ICarRentalCompany {
     }
 
     @Override
-    public Collection<String> getAllClients() {
+    public String getBestClient() {
+        String bestClient = null;
+        for (String client: this.getAllClients()) {
+            if (client == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
+                bestClient = client;
+            }
+        }
+        return bestClient;
+    }
+
+    private Collection<String> getAllClients() {
         ArrayList<String> clients = new ArrayList<String>();
         for (Car car: this.cars) {
             for (Reservation reservation: car.getReservations()) {
