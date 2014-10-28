@@ -174,17 +174,6 @@ public class CarRentalCompany implements ICarRentalCompany {
         return numberOfReservationsByClient;
     }
 
-    @Override
-    public String getBestClient() {
-        String bestClient = null;
-        for (String client: this.getAllClients()) {
-            if (client == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
-                bestClient = client;
-            }
-        }
-        return bestClient;
-    }
-
     private Collection<String> getAllClients() {
         ArrayList<String> clients = new ArrayList<String>();
         for (Car car: this.cars) {
@@ -195,6 +184,17 @@ public class CarRentalCompany implements ICarRentalCompany {
             }
         }
         return clients;
+    }
+
+    @Override
+    public String getBestClient() {
+        String bestClient = null;
+        for (String client: this.getAllClients()) {
+            if (client == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
+                bestClient = client;
+            }
+        }
+        return bestClient;
     }
 
     @Override
