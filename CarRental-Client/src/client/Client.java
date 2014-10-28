@@ -2,7 +2,9 @@ package client;
 
 import rental.CarType;
 import rental.Reservation;
-import session.*;
+import session.ManagerSessionRemote;
+import session.ReservationSessionRemote;
+import session.SessionManagerRemote;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;

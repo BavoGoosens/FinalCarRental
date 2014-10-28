@@ -6,7 +6,6 @@ import session.ManagerSessionRemote;
 import session.SessionManagerRemote;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.NotBoundException;

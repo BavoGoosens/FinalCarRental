@@ -1,5 +1,7 @@
 package util;
 
+import java.io.Serializable;
+
 /**
  * A class representing a generic tuple.
  *
@@ -7,7 +9,7 @@ package util;
  * @param <Y> The type of the second variable of the tuple.
  * @author SWOP team 10 2013-2014
  */
-public class Tuple<X, Y> {
+public class Tuple<X, Y> implements Serializable {
 
     /**
      * The first variable of the tuple.

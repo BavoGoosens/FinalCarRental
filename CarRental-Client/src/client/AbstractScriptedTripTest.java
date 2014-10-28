@@ -1,18 +1,13 @@
 package client;
 
+import rental.CarType;
+import rental.Reservation;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-import java.util.StringTokenizer;
-
-import rental.CarType;
-import rental.Reservation;
+import java.util.*;
 
 /**
  * Small scriptable testing system. Reads a scenario from file and executes it.

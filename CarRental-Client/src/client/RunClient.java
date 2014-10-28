@@ -1,8 +1,5 @@
 package client;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  * Created by Team Loco on 21/10/2014.
  */

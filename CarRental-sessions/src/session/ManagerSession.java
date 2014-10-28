@@ -3,12 +3,14 @@ package session;
 import naming.DoubleNamingException;
 import naming.InvalidNamingException;
 import naming.NamingServiceRemote;
-import naming.DoubleNamingException;
-import rental.ICarRentalCompany;
 import rental.CarType;
+import rental.ICarRentalCompany;
 
 import java.rmi.RemoteException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *

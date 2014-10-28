@@ -1,7 +1,7 @@
 import naming.DoubleNamingException;
 import naming.InvalidNamingException;
-import rental.ICarRentalCompany;
 import naming.NamingServiceRemote;
+import rental.ICarRentalCompany;
 
 import java.rmi.RemoteException;
 import java.util.Collection;
