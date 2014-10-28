@@ -9,17 +9,21 @@ import rental.IRentalServer;
  */
 public class SessionManager implements SessionManagerRemote {
 
-    public  SessionManager(IRentalServer rentalServer, NamingServiceRemote namingService){
+    private IRentalServer rentalServer;
+    private NamingServiceRemote namingService;
 
+    public  SessionManager(IRentalServer rentalServer, NamingServiceRemote namingService){
+        this.rentalServer = rentalServer;
+        this.namingService = namingService;
     }
 
     @Override
-    public ManagerSession getManagerSessionRemote(String name) {
+    public ManagerSessionRemote getManagerSessionRemote(String name) {
         return null;
     }
 
     @Override
-    public ReservationSession getReservationSessionRemote(String name) {
+    public ReservationSessionRemote getReservationSessionRemote(String name) {
         return null;
     }
 }

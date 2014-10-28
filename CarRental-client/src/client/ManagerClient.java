@@ -37,6 +37,7 @@ public class ManagerClient {
         BufferedReader in = new BufferedReader(new FileReader(this.filePath));
         while (in.ready())
             csvData = in.readLine();
+
         session.registerCompany(companyName, csvData);
     }
 }
