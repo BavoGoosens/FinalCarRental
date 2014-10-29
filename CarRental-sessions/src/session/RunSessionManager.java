@@ -62,7 +62,7 @@ public class RunSessionManager {
             SessionManagerRemote stub = (SessionManagerRemote) UnicastRemoteObject.exportObject(manager, 0);
 
             Registry registry = LocateRegistry.getRegistry(sessionHost,sessionPort);
-            registry.bind(sessionName, stub);
+            registry.rebind(sessionName, stub);
         }
 
     }

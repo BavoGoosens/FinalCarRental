@@ -3,7 +3,11 @@ package session;
 
 import naming.NamingServiceRemote;
 
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 
 /**
@@ -19,6 +23,7 @@ public class SessionManager implements SessionManagerRemote {
     private HashMap<String, ReservationSessionRemote> activeReservationSessions;
 
     public SessionManager(String host, int port, String name, NamingServiceRemote namingService){
+        System.setSecurityManager(null);
         this.host = host;
         this.port = port;
         this.name = name;
@@ -28,17 +33,24 @@ public class SessionManager implements SessionManagerRemote {
     }
 
     @Override
-    public ManagerSessionRemote getManagerSessionRemote(String name) {
+    public ManagerSessionRemote getManagerSessionRemote(String name) throws RemoteException{
         if (!this.activeManagerSessions.containsKey(name)) {
-            this.activeManagerSessions.put(name, new ManagerSession(this.namingService, name));
+            ManagerSessionRemote msr = new ManagerSession(this.namingService, name);
+            ManagerSessionRemote stub = (ManagerSessionRemote) UnicastRemoteObject.exportObject(msr,0);
+            //Registry reg = LocateRegistry.getRegistry(this.host,this.port);
+            //reg.rebind(name, stub);
+            this.activeManagerSessions.put(name, stub);
         }
+        //return (ManagerSessionRemote) LocateRegistry.getRegistry(host,port).lookup(name);
         return this.activeManagerSessions.get(name);
     }
 
     @Override
-    public ReservationSessionRemote getReservationSessionRemote(String name) {
+    public ReservationSessionRemote getReservationSessionRemote(String name) throws RemoteException {
         if (!this.activeReservationSessions.containsKey(name)) {
-            this.activeReservationSessions.put(name, new ReservationSession(this.namingService, name));
+            ReservationSessionRemote rsr = new ReservationSession(this.namingService, name);
+            ReservationSessionRemote stub = (ReservationSessionRemote) UnicastRemoteObject.exportObject(rsr,0);
+            this.activeReservationSessions.put(name, stub);
         }
         return this.activeReservationSessions.get(name);
     }

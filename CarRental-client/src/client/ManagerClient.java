@@ -12,6 +12,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -39,7 +40,8 @@ public class ManagerClient {
     public void run() throws IOException, ReservationException, DoubleNamingException {
         List<Car> cars = loadData(this.filePath);
         ICarRentalCompany company = new CarRentalCompany(this.companyName, cars);
-        this.session.registerCompany(company);
+        ICarRentalCompany stub = (ICarRentalCompany) UnicastRemoteObject.exportObject(company, 0);
+        this.session.registerCompany(stub);
     }
 
     public static List<Car> loadData(String datafile)

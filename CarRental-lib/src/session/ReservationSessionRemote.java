@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public interface ReservationSessionRemote extends Remote, Serializable {
+public interface ReservationSessionRemote extends Remote {
 
     String getClientName() throws RemoteException;
 

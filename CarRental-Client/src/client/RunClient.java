@@ -34,12 +34,12 @@ public class RunClient {
                     host + "\nport = " + port + "\nname = " + name );
         }
 
-        ManagerClient manager1 = new ManagerClient("Dockx", "src/dockx.csv", host, port,name);
-        ManagerClient manager2 = new ManagerClient("Hertz", "src/hertz", host , port, name);
+        ManagerClient manager1 = new ManagerClient("Dockx", "C:\\Users\\Bavo\\Documents\\GitHub\\FinalCarRental\\CarRental-client\\src\\dockx.csv", host, port,name);
+        ManagerClient manager2 = new ManagerClient("Hertz", "C:\\Users\\Bavo\\Documents\\GitHub\\FinalCarRental\\CarRental-client\\src\\hertz.csv", host , port, name);
         manager1.run();
         manager2.run();
 
-        Client testClient = new Client("src/trips", host, port, name);
+        Client testClient = new Client("C:\\Users\\Bavo\\Documents\\GitHub\\FinalCarRental\\CarRental-client\\src\\trips", host, port, name);
         testClient.run();
     }
 }

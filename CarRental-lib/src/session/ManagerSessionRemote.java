@@ -16,7 +16,7 @@ import java.util.Set;
  * @author Michiel Vandendriessche & Bavo Goosens
  */
 
-public interface ManagerSessionRemote extends Remote, Serializable {
+public interface ManagerSessionRemote extends Remote {
 
     String getClientName() throws RemoteException;
 

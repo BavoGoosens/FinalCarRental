@@ -23,6 +23,7 @@ public class ManagerSession implements ManagerSessionRemote {
     private String clientName;
 
     public ManagerSession(NamingServiceRemote namingService, String clientName) {
+        System.setSecurityManager(null);
         this.namingService = namingService;
         this.clientName = clientName;
     }

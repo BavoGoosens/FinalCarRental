@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by TeamLoco on 22/10/2014.
  */
-public interface ICarRentalCompany extends Remote, Serializable {
+public interface ICarRentalCompany extends Remote {
 
     String getName() throws RemoteException;
 

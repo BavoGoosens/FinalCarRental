@@ -1,5 +1,7 @@
 package session;
 
+import java.io.Serializable;
+import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -9,7 +11,7 @@ import java.rmi.RemoteException;
 public interface SessionManagerRemote extends Remote {
 
     // client name
-    ManagerSessionRemote getManagerSessionRemote(String name) throws RemoteException;
+    ManagerSessionRemote getManagerSessionRemote(String name) throws RemoteException, NotBoundException;
 
     ReservationSessionRemote getReservationSessionRemote(String name) throws RemoteException;
 

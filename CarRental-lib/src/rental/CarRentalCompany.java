@@ -58,8 +58,8 @@ public class CarRentalCompany implements ICarRentalCompany {
 		return getAvailableCarTypes(start, end).contains(carTypes.get(carTypeName));
 	}
 	
-	public Set<CarType> getAvailableCarTypes(Date start, Date end) {
-		Set<CarType> availableCarTypes = new HashSet<CarType>();
+	public List<CarType> getAvailableCarTypes(Date start, Date end) {
+		List<CarType> availableCarTypes = new ArrayList<>();
 		for (Car car : cars) {
 			if (car.isAvailable(start, end)) {
 				availableCarTypes.add(car.getType());
