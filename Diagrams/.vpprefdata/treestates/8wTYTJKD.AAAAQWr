@@ -11,11 +11,15 @@
 		<ExpandedPath>DiagramNavigator,Database Modeling</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,SysML</ExpandedPath>
 		<ExpandedPath>DiagramNavigator,Others</ExpandedPath>
-		<SelectedPath>ClassDiagram,322hTJKD.AAAAQZw</SelectedPath>
+		<SelectedPath>ClassDiagram,C0AjOpKD.AAAAQn6</SelectedPath>
 	</TreeState>
 	<TreeState name="ClassBrowser" viewX="0" viewY="0">
 		<ExpandedPath>ClassBrowser</ExpandedPath>
 		<ExpandedPath>ClassBrowser,ClassBrowser</ExpandedPath>
+		<ExpandedPath>ClassBrowser,ClassBrowser,2ynDOpKD.AAAAQTp</ExpandedPath>
+		<SelectedPath>ClassBrowser,ClassBrowser,OqOhTJKD.AAAAQZ4</SelectedPath>
 	</TreeState>
-	<TreeState name="LogicalView" viewX="0" viewY="0"/>
+	<TreeState name="LogicalView" viewX="0" viewY="0">
+		<SelectedPath>LogicalView</SelectedPath>
+	</TreeState>
 </ProjectTreeState>

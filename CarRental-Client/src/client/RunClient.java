@@ -34,8 +34,8 @@ public class RunClient {
                     host + "\nport = " + port + "\nname = " + name );
         }
 
-        ManagerClient manager1 = new ManagerClient("Dockx", "/Users/michielvandendriessche/Documents/School/Distributed Systems/FinalCarRental/CarRental-Client/src/dockx.csv", host, port,name);
-        ManagerClient manager2 = new ManagerClient("Hertz", "/Users/michielvandendriessche/Documents/School/Distributed Systems/FinalCarRental/CarRental-Client/src/hertz.csv", host , port, name);
+        ManagerClient manager1 = new ManagerClient("Dockx", "CarRental-client/src/dockx.csv", host, port,name);
+        ManagerClient manager2 = new ManagerClient("Hertz", "CarRental-client/src/hertz.csv", host , port, name);
         manager1.run();
         manager2.run();
 

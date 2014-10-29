@@ -46,10 +46,6 @@ public class ManagerClient {
         this.session.registerCompany(stub);
     }
 
-    public void terminate() throws RemoteException {
-        this.sessionManager.closeManagerSession(this.session);
-    }
-
     public static List<Car> loadData(String datafile)
             throws ReservationException, NumberFormatException, IOException {
 
