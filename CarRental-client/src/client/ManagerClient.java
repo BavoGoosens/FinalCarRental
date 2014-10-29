@@ -24,6 +24,8 @@ public class ManagerClient {
 
     private ManagerSessionRemote session;
 
+    private SessionManagerRemote sessionManager;
+
     private String companyName;
 
     private String filePath;
@@ -31,7 +33,7 @@ public class ManagerClient {
     public ManagerClient(String companyName, String filePath, String host, int port, String name) throws RemoteException, NotBoundException {
         System.setSecurityManager(null);
         Registry registry = LocateRegistry.getRegistry(host, port);
-        SessionManagerRemote sessionManager = (SessionManagerRemote) registry.lookup(name);
+        sessionManager = (SessionManagerRemote) registry.lookup(name);
         session = sessionManager.getManagerSessionRemote("ManagerA");
         this.companyName = companyName;
         this.filePath = filePath;
@@ -42,6 +44,10 @@ public class ManagerClient {
         ICarRentalCompany company = new CarRentalCompany(this.companyName, cars);
         ICarRentalCompany stub = (ICarRentalCompany) UnicastRemoteObject.exportObject(company, 0);
         this.session.registerCompany(stub);
+    }
+
+    public void terminate() throws RemoteException {
+        this.sessionManager.closeManagerSession(this.session);
     }
 
     public static List<Car> loadData(String datafile)

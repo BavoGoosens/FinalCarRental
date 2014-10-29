@@ -35,5 +35,4 @@ public interface ManagerSessionRemote extends Remote {
     int getNbOfReservations(String client) throws RemoteException;
 
     CarType getMostPopularCarType(String company) throws RemoteException, InvalidNamingException;
-    
 }

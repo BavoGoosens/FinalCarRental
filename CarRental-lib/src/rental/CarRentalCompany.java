@@ -59,7 +59,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 	}
 	
 	public List<CarType> getAvailableCarTypes(Date start, Date end) {
-		List<CarType> availableCarTypes = new ArrayList<>();
+		List<CarType> availableCarTypes = new ArrayList<CarType>();
 		for (Car car : cars) {
 			if (car.isAvailable(start, end)) {
 				availableCarTypes.add(car.getType());
@@ -177,6 +177,7 @@ public class CarRentalCompany implements ICarRentalCompany {
                 }
             }
         }
+        System.out.println("\nList of all clients: "+clients+"\n");
         return clients;
     }
 
@@ -184,7 +185,7 @@ public class CarRentalCompany implements ICarRentalCompany {
     public String getBestClient() {
         String bestClient = null;
         for (String client: this.getAllClients()) {
-            if (client == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
+            if (bestClient == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
                 bestClient = client;
             }
         }
