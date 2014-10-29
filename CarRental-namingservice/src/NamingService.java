@@ -4,6 +4,7 @@ import naming.NamingServiceRemote;
 import rental.ICarRentalCompany;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -49,7 +50,7 @@ public class NamingService implements NamingServiceRemote {
 
     @Override
     public Collection<ICarRentalCompany> getAllCompanies() {
-        return this.registeredCompanies.values();
+        return new ArrayList<ICarRentalCompany>(registeredCompanies.values());
     }
 
 

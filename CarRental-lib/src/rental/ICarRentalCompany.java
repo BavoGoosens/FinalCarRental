@@ -1,6 +1,5 @@
 package rental;
 
-import java.io.Serializable;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
@@ -25,7 +24,7 @@ public interface ICarRentalCompany extends Remote {
 
     int getNumberOfReservationsByClient(String client) throws RemoteException;
 
-    String getBestClient() throws RemoteException;
+    Collection<String> getAllClients() throws RemoteException;
 
     CarType getMostPopularCarType() throws RemoteException;
 

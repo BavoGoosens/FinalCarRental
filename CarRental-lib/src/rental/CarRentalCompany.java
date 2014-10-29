@@ -2,6 +2,7 @@ package rental;
 
 import util.Tuple;
 
+import java.rmi.RemoteException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,7 +60,7 @@ public class CarRentalCompany implements ICarRentalCompany {
 	}
 	
 	public List<CarType> getAvailableCarTypes(Date start, Date end) {
-		List<CarType> availableCarTypes = new ArrayList<>();
+		List<CarType> availableCarTypes = new ArrayList<CarType>();
 		for (Car car : cars) {
 			if (car.isAvailable(start, end)) {
 				availableCarTypes.add(car.getType());
@@ -168,7 +169,8 @@ public class CarRentalCompany implements ICarRentalCompany {
         return numberOfReservationsByClient;
     }
 
-    private Collection<String> getAllClients() {
+    @Override
+    public Collection<String> getAllClients() {
         ArrayList<String> clients = new ArrayList<String>();
         for (Car car: this.cars) {
             for (Reservation reservation: car.getReservations()) {
@@ -178,17 +180,6 @@ public class CarRentalCompany implements ICarRentalCompany {
             }
         }
         return clients;
-    }
-
-    @Override
-    public String getBestClient() {
-        String bestClient = null;
-        for (String client: this.getAllClients()) {
-            if (client == null || this.getNumberOfReservationsByClient(client) > this.getNumberOfReservationsByClient(bestClient)) {
-                bestClient = client;
-            }
-        }
-        return bestClient;
     }
 
     @Override
