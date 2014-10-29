@@ -39,7 +39,7 @@ public class RunClient {
         manager1.run();
         manager2.run();
 
-        Client testClient = new Client("/Users/michielvandendriessche/Documents/School/Distributed Systems/FinalCarRental/CarRental-Client/src/trips", host, port, name);
+        Client testClient = new Client("CarRental-client/src/trips", host, port, name);
         testClient.run();
     }
 }
