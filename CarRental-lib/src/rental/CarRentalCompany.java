@@ -58,7 +58,8 @@ public class CarRentalCompany implements ICarRentalCompany {
 		logger.log(Level.INFO, "<{0}> Checking availability for car type {1}", new Object[]{name, carTypeName});
 		return getAvailableCarTypes(start, end).contains(carTypes.get(carTypeName));
 	}
-	
+
+    @Override
 	public List<CarType> getAvailableCarTypes(Date start, Date end) {
 		List<CarType> availableCarTypes = new ArrayList<CarType>();
 		for (Car car : cars) {

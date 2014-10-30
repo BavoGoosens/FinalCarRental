@@ -4,6 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by TeamLoco on 22/10/2014.
@@ -11,6 +12,8 @@ import java.util.Date;
 public interface ICarRentalCompany extends Remote {
 
     String getName() throws RemoteException;
+
+    List<CarType> getAvailableCarTypes(Date start, Date end);
 
     Quote createQuote(ReservationConstraints constraints, String guest) throws ReservationException, RemoteException;
 

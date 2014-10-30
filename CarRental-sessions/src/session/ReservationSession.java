@@ -6,10 +6,7 @@ import rental.*;
 import util.Tuple;
 
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class ReservationSession implements ReservationSessionRemote {
@@ -74,7 +71,13 @@ public class ReservationSession implements ReservationSessionRemote {
 
         @Override
     public void getAvailableCarTypes(Date start, Date end) throws RemoteException {
-
+        for (ICarRentalCompany company : this.namingService.getAllCompanies()) {
+            Collection<CarType> types = company.getAvailableCarTypes(start, end);
+            System.out.println("Available car types for "+company.getName());
+            for (CarType type : types) {
+                System.out.println(type);
+            }
+        }
     }
 
     @Override
