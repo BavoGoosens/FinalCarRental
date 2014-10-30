@@ -81,6 +81,12 @@ public class ReservationSession implements ReservationSessionRemote {
     }
 
     @Override
+    public List<CarType> getAvailableCarTypes(String companyName, Date start, Date end) throws RemoteException, InvalidNamingException {
+        ICarRentalCompany comp = this.namingService.lookUpCompany(companyName);
+        return comp.getAvailableCarTypes(start, end);
+    }
+
+    @Override
     public String getCheapestCarType(Date start, Date end) throws RemoteException {
         ArrayList<Tuple<CarType, Double>> cheapestCars = new ArrayList<Tuple<CarType, Double>>();
         for (ICarRentalCompany company: this.namingService.getAllCompanies()) {

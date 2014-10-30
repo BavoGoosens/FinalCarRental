@@ -24,6 +24,8 @@ public interface ReservationSessionRemote extends Remote {
     
     void getAvailableCarTypes(Date start, Date end) throws RemoteException;
 
+    List<rental.CarType> getAvailableCarTypes(String companyName, Date start, Date end) throws RemoteException, InvalidNamingException;
+
     String getCheapestCarType(Date start, Date end) throws RemoteException;
     
 }
