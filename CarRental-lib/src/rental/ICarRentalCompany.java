@@ -13,7 +13,7 @@ public interface ICarRentalCompany extends Remote {
 
     String getName() throws RemoteException;
 
-    List<CarType> getAvailableCarTypes(Date start, Date end);
+    List<CarType> getAvailableCarTypes(Date start, Date end) throws RemoteException;
 
     Quote createQuote(ReservationConstraints constraints, String guest) throws ReservationException, RemoteException;
 
